@@ -1,0 +1,5 @@
+DOMAIN = $(PACKAGE)
+POTFILES = $(top_srcdir)/src/guess.c
+XGETTEXT_OPTIONS = --keyword=_ --keyword=N_ --keyword=ngettext:1,2
+MSGMERGE_OPTIONS = --no-fuzzy-matching
+
