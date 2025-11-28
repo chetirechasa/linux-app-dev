@@ -1,0 +1,54 @@
+--- maze.c	2025-12-14 15:26:18.133599667 +0300
++++ maze_v1.c	2025-12-14 15:27:17.102876991 +0300
+@@ -4,15 +4,16 @@
+ 
+ #define WALL '#'
+ #define PATH '.'
+-#define SIZE 6
+ 
+-int grid[2*SIZE+1][2*SIZE+1];
++int SIZE = 6;
++
++int **grid;
+ 
+ typedef struct {
+     int x, y;
+ } Point;
+ 
+-Point stack[(2*SIZE+1) * (2*SIZE+1)];
++Point *stack;
+ int stack_size = 0;
+ 
+ void init_grid() {
+@@ -86,10 +87,30 @@
+     }
+ }
+ 
+-int main() {
++int main(int argc, char *argv[]) {
++    if (argc > 1) {
++        SIZE = atoi(argv[1]);
++        if (SIZE < 2) SIZE = 6;
++    }
++    
++    // Выделение памяти для динамического размера
++    grid = malloc((2*SIZE+1) * sizeof(int*));
++    for (int i = 0; i < 2*SIZE+1; i++) {
++        grid[i] = malloc((2*SIZE+1) * sizeof(int));
++    }
++    stack = malloc((2*SIZE+1) * (2*SIZE+1) * sizeof(Point));
++    
+     init_grid();
+     generate_maze();
+     print_maze();
++    
++    // Освобождение памяти
++    for (int i = 0; i < 2*SIZE+1; i++) {
++        free(grid[i]);
++    }
++    free(grid);
++    free(stack);
++    
+     return 0;
+ }
+ 

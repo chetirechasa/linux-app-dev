@@ -1,0 +1,49 @@
+--- maze_v2.c	2025-12-14 15:33:39.428661290 +0300
++++ maze_v3.c	2025-12-14 15:34:20.111318469 +0300
+@@ -37,8 +37,8 @@
+     return x > 0 && x < 2*SIZE && y > 0 && y < 2*SIZE;
+ }
+ 
+-void generate_maze() {
+-    srand(time(NULL));
++void generate_maze(unsigned int seed) {
++    srand(seed);
+     
+     Point start = {1, 1};
+     grid[start.y][start.x] = 0;
+@@ -89,15 +89,20 @@
+ }
+ 
+ int main(int argc, char *argv[]) {
+-    // Обработка аргументов: первый - символы, второй - размер
++    unsigned int seed = time(NULL);
++    
++    // Обработка аргументов: seed, символы, размер
+     if (argc > 1) {
+-        if (strlen(argv[1]) >= 2) {
+-            WALL = argv[1][0];
+-            PATH = argv[1][1];
+-        }
++        seed = atoi(argv[1]);
+     }
+     if (argc > 2) {
+-        SIZE = atoi(argv[2]);
++        if (strlen(argv[2]) >= 2) {
++            WALL = argv[2][0];
++            PATH = argv[2][1];
++        }
++    }
++    if (argc > 3) {
++        SIZE = atoi(argv[3]);
+         if (SIZE < 2) SIZE = 6;
+     }
+     
+@@ -109,7 +114,7 @@
+     stack = malloc((2*SIZE+1) * (2*SIZE+1) * sizeof(Point));
+     
+     init_grid();
+-    generate_maze();
++    generate_maze(seed);
+     print_maze();
+     
+     // Освобождение памяти

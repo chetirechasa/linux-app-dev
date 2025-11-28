@@ -1,0 +1,32 @@
+--- maze_v1.c	2025-12-14 15:27:17.102876991 +0300
++++ maze_v2.c	2025-12-14 15:33:39.428661290 +0300
+@@ -1,9 +1,10 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <time.h>
++#include <string.h>
+ 
+-#define WALL '#'
+-#define PATH '.'
++char WALL = '#';
++char PATH = '.';
+ 
+ int SIZE = 6;
+ 
+@@ -88,8 +89,15 @@
+ }
+ 
+ int main(int argc, char *argv[]) {
++    // Обработка аргументов: первый - символы, второй - размер
+     if (argc > 1) {
+-        SIZE = atoi(argv[1]);
++        if (strlen(argv[1]) >= 2) {
++            WALL = argv[1][0];
++            PATH = argv[1][1];
++        }
++    }
++    if (argc > 2) {
++        SIZE = atoi(argv[2]);
+         if (SIZE < 2) SIZE = 6;
+     }
+     
