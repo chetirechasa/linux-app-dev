@@ -1,0 +1,82 @@
+# Russian translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Ivan Mukhin <chipichipi@chapachapa.ru>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: chipichipi@chapachapa.ru\n"
+"POT-Creation-Date: 2026-01-18 07:01+0300\n"
+"PO-Revision-Date: 2026-01-15 18:24+0300\n"
+"Last-Translator:  <pineapple@pineapple.localdomain>\n"
+"Language-Team: Russian <gnu@d07.ru>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: src/main.c:35
+#, c-format
+msgid "Usage: login-gen [OPTIONS] USERNAME\n"
+msgstr "Использование: login-gen [ОПЦИИ] ИМЯ ПОЛЬЗОВАТЕЛЯ\n"
+
+#: src/main.c:36
+#, c-format
+msgid ""
+"Generate system login in format: system-<username>-<random_number>\n"
+"\n"
+msgstr ""
+"Генерирует логин системы в формате: system-<username>-<random_number>\n"
+"\n"
+
+#: src/main.c:37
+#, c-format
+msgid "Options:\n"
+msgstr "Опции:\n"
+
+#: src/main.c:38
+#, c-format
+msgid "  -h, --help    Show this help message\n"
+msgstr "  -h, --help    Показать эту помощь\n"
+
+#: src/main.c:39
+#, c-format
+msgid ""
+"  -v, --version Show version information\n"
+"\n"
+msgstr ""
+"  -v, --version Показать информацию о версии\n"
+"\n"
+
+#: src/main.c:40
+#, c-format
+msgid "Username must contain only latin letters\n"
+msgstr "Имя пользователя должно состоять только из латинских букв\n"
+
+#: src/main.c:41
+#, c-format
+msgid "Example: login-gen Ivan\n"
+msgstr "Пример: login-gen Ivan\n"
+
+#: src/main.c:46
+#, c-format
+msgid "System login generator\n"
+msgstr "Генератор системного логина\n"
+
+#: src/main.c:65
+#, c-format
+msgid "Error: Username is required\n"
+msgstr "Ошибка: требуется имя пользователя\n"
+
+#: src/main.c:73
+#, c-format
+msgid "Error: Username must contain only Latin letters\n"
+msgstr "Ошибка: имя пользователя может содержать только латинские буквы\n"
+
+#: src/main.c:79
+#, c-format
+msgid "Error: Failed to generate login\n"
+msgstr "Ошибка: Не получилось сгенерировать логин\n"

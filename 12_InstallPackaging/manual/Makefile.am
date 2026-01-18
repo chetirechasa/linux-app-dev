@@ -1,0 +1,1 @@
+man_MANS = login-gen.1

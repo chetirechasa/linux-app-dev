@@ -1,0 +1,29 @@
+.\" Manpage for login-gen
+.TH LOGIN\-GEN 1 "2026-01-16" "login-gen 1.0.0" "User Commands"
+.SH NAME
+login-gen \- generate system login names
+.SH SYNOPSIS
+.B login-gen
+[\fIOPTION\fR] \fIUSERNAME\fR
+.SH DESCRIPTION
+.PP
+Generate system login names in the format: system-\fIusername\fR-\fIrandom_number\fR
+where \fIusername\fR is converted to lowercase and \fIrandom_number\fR is between 0 and 9999.
+.PP
+The username must contain only Latin letters (a\-z, A\-Z).
+.SH OPTIONS
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+Display this help and exit
+.TP
+\fB\-v\fR, \fB\-\-version\fR
+Output version information and exit
+.SH EXAMPLES
+.TP
+.B login-gen Ivan
+Generate login for Ivan (e.g., system-ivan-0425)
+.TP
+.B login-gen Alice
+Generate login for Alice (e.g., system-alice-7890)
+.SH AUTHOR
+Written by Login-Gen Development Team
