@@ -9,6 +9,9 @@ install-data-local:
 	mkdir -p $(DESTDIR)/$(docdir)
 	cp -a doxygen-doc/html $(DESTDIR)/$(docdir)
 
+uninstall-local:
+	rm -rf $(DESTDIR)/$(docdir)
+
 http:	doxygen-doc
 	python3 -m http.server --directory $</html
 
